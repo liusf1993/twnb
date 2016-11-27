@@ -1,0 +1,73 @@
+#macro(hello)
+<div>你好123</div>
+#end
+#macro(helloToUser $user)
+<div>
+    #if($user)
+        $!user.name
+        #if($user.sex==1)
+            先生
+        #elseif($user.sex==0)
+            女士
+        #end
+        ，
+    #end
+    你好
+</div>
+#end
+#macro(liTab $params)
+<li class="#if($!{params.isActive}) active #end ">
+    <a href="#">${params.value}</a>
+</li>
+#end
+
+#macro(userIntroduction $user)
+<div class="sidebar-module sidebar-module-inset">
+    <h4>作者简介</h4>
+    <p>$!{user.name}，一个逗比.一个逗比，一个</p>
+</div>
+#end
+#macro(header)
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container" style="margin-bottom: 0;">
+        <div class="navbar-header">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="$ctx" style="font-size: 32px;">思无涯</a>
+            <a class="navbar-brand" style="line-height: 32px;">think without
+                bounds</a>
+        </div>
+        #if(${user})
+            <ul class="nav navbar-nav navbar-right " style="float:right!important;">
+                <li id="fat-menu" class="dropdown">
+                    <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">$!{user.name}<b class="caret"></b></a>
+                    <ul class="dropdown-menu " aria-labelledby="drop3">
+                        <li><a href="#">个人设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="$!{ctx}/logout">注销</a></li>
+                        <li><a href="$!{ctx}/article/postBlog">发布博文</a></li>
+                    </ul>
+                </li>
+            </ul>
+        #else
+            <div id="navbar" class="navbar-collapse collapse">
+                <form id="loginForm" name="loginForm" class="navbar-form navbar-right" method="post" action="/register">
+                    <div class="form-group">
+                        <input type="text" name="username" placeholder="用户名" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="密码" class="form-control">
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="doLogin('login')">登录</button>
+                    <button type="button" class="btn btn-info" onclick="doRegister('register')">注册</button>
+                </form>
+            </div>
+        #end
+    </div>
+</nav>
+#end

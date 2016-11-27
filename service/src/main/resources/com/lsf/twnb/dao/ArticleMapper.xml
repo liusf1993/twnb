@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lsf.twnb.dao.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.lsf.twnb.entity.Article" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="CHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="publishDate" property="publishdate" jdbcType="DATE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.lsf.twnb.entity.ArticleWithContent" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARBINARY" />
+    <result column="comment" property="comment" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, author, publishDate
+  </sql>
+  <sql id="Blob_Column_List" >
+    content, comment
+  </sql>
+  <insert id="insertSelective" parameterType="com.lsf.twnb.entity.ArticleWithContent" >
+    insert into Article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="publishdate != null" >
+        publishDate,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=CHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishdate != null" >
+        sysdate,
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lsf.twnb.entity.ArticleWithContent" >
+    update Article
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=CHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishdate != null" >
+        publishDate = #{publishdate,jdbcType=DATE},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="getNextArticle" resultType="com.lsf.twnb.entity.ArticleWithContent">
+            select id, title, author, publishDate, content, comment
+            from Article
+            where id
+      <choose>
+        <when test="type !=null">
+          &gt;
+        </when>
+        <otherwise>
+          &lt;
+        </otherwise>
+
+      </choose>
+         #{currentBlogId}  limit 0,1
+    </select>
+</mapper>

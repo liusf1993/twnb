@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lsf.twnb.dao.twnbMapper" >
+  <resultMap id="BaseResultMap" type="com.lsf.twnb.entity.twnb" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="twnb_time" property="twnbTime" jdbcType="DATE" />
+    <result column="twnb_date" property="twnbDate" jdbcType="TIME" />
+    <result column="twnb_type" property="twnbType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, username, twnb_time, twnb_date, twnb_type
+  </sql>
+  <insert id="insert" parameterType="com.lsf.twnb.entity.twnb" >
+    insert into twnb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="twnbTime != null" >
+        twnb_time,
+      </if>
+      <if test="twnbDate != null" >
+        twnb_date,
+      </if>
+      <if test="twnbType != null" >
+        twnb_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="twnbTime != null" >
+        #{twnbTime,jdbcType=DATE},
+      </if>
+      <if test="twnbDate != null" >
+        #{twnbDate,jdbcType=TIME},
+      </if>
+      <if test="twnbType != null" >
+        #{twnbType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByUsername" parameterType="com.lsf.twnb.entity.twnb" >
+    update twnb
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="twnbTime != null" >
+        twnb_time = #{twnbTime,jdbcType=DATE},
+      </if>
+      <if test="twnbDate != null" >
+        twnb_date = #{twnbDate,jdbcType=TIME},
+      </if>
+      <if test="twnbType != null" >
+        twnb_type = #{twnbType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where username = #{username,jdbcType=INTEGER}
+  </update>
+</mapper>

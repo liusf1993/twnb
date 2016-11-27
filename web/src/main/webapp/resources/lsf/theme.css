@@ -1,0 +1,25 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin-left: 3%;
+    margin-right: 3%;
+    background-color: #eee;
+}
+
+#mainDiv.container {
+    margin-top: 5%;
+    width: 100%;
+}
+.blog-post-title{
+    text-align: center;
+}
+
+
+@media screen and (max-width:1000px){
+    .blog-sidebar{
+        display: none;
+    }
+
+}
