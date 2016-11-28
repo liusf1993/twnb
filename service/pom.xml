@@ -101,7 +101,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
         </dependency>
-
         <!--test end-->
     </dependencies>
 </project>
