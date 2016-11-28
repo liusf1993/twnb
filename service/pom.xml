@@ -12,6 +12,7 @@
     <url>https://github.com/liusf1993/twnb/service</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.finalName>twnb-service</project.build.finalName>
     </properties>
 
     <dependencies>
@@ -103,4 +104,7 @@
         </dependency>
         <!--test end-->
     </dependencies>
+    <build>
+        <finalName>twnb-service</finalName>
+    </build>
 </project>

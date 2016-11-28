@@ -1,6 +1,5 @@
 package com.lsf.twnb.annotation;
 
-import org.aopalliance.intercept.Joinpoint;
 
 import java.lang.reflect.Method;
 

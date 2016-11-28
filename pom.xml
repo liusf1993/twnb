@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lsf.twnb</groupId>
     <artifactId>twnb</artifactId>
-    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <modules>
         <module>common</module>
         <module>service</module>
@@ -261,7 +261,6 @@
             </dependency>
 
 
-
             <dependency>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-core</artifactId>
@@ -309,18 +308,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <build>
-        <finalName>twnb</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.].generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.2</version>
-                <configuration>
-                    <verbose>true</verbose>
-                    <overwrite>true</overwrite>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

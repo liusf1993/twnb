@@ -3,7 +3,6 @@ import com.lsf.twnb.service.interfaces.IUserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.BaseTest;
 
 /**
  * Created by liusf on 8/8/16.

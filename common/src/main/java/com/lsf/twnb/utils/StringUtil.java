@@ -7,6 +7,6 @@ package com.lsf.twnb.utils;
  */
 public class StringUtil {
     public static boolean isNotBlank(String s){
-        return s!=null&&s.trim()!="";
+        return s!=null&&s.replaceAll("\\s","").length()!=0;
     }
 }
