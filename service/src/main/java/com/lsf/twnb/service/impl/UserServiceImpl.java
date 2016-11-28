@@ -13,28 +13,24 @@ import org.springframework.stereotype.Component;
 public class UserServiceImpl implements IUserService
 {
     @Autowired
-    UserMapper entityMapper;
+    UserMapper userMapper;
 
-    @Override
     public void insert(User user)
     {
-        entityMapper.insert(user);
+        userMapper.insert(user);
     }
 
-    @Override
     public void updateById(User user)
     {
-        entityMapper.updateById(user);
+        userMapper.updateById(user);
     }
 
-    @Override
     public User getUserByName(String username) {
-        return entityMapper.getUserByName(username);
+        return userMapper.getUserByName(username);
     }
 
-    @Override
     public User checkUserLogin(User user) {
-        User dbUser=entityMapper.getUserByName(user.getUsername());
+        User dbUser= userMapper.getUserByName(user.getUsername());
         if(dbUser==null){
             return null;
         }

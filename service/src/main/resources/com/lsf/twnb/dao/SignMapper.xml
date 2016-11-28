@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lsf.twnb.dao.twnbMapper" >
-  <resultMap id="BaseResultMap" type="com.lsf.twnb.entity.twnb" >
+<mapper namespace="com.lsf.twnb.dao.SignMapper" >
+  <resultMap id="BaseResultMap" type="com.lsf.twnb.entity.Sign" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="twnb_time" property="twnbTime" jdbcType="DATE" />
-    <result column="twnb_date" property="twnbDate" jdbcType="TIME" />
-    <result column="twnb_type" property="twnbType" jdbcType="VARCHAR" />
+    <result column="sign_time" property="signTime" jdbcType="DATE" />
+    <result column="sign_date" property="signDate" jdbcType="TIME" />
+    <result column="sign_type" property="signType" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, uid, username, twnb_time, twnb_date, twnb_type
+    id, uid, username, sign_time, sign_date, sign_type
   </sql>
-  <insert id="insert" parameterType="com.lsf.twnb.entity.twnb" >
-    insert into twnb
+  <insert id="insert" parameterType="com.lsf.twnb.entity.Sign" >
+    insert into sign
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="uid != null" >
         uid,
@@ -21,14 +21,14 @@
       <if test="username != null" >
         username,
       </if>
-      <if test="twnbTime != null" >
-        twnb_time,
+      <if test="signTime != null" >
+        sign_time,
       </if>
-      <if test="twnbDate != null" >
-        twnb_date,
+      <if test="signDate != null" >
+        sign_date,
       </if>
-      <if test="twnbType != null" >
-        twnb_type,
+      <if test="signType != null" >
+        sign_type,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -38,19 +38,19 @@
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="twnbTime != null" >
-        #{twnbTime,jdbcType=DATE},
+      <if test="signTime != null" >
+        #{signTime,jdbcType=DATE},
       </if>
-      <if test="twnbDate != null" >
-        #{twnbDate,jdbcType=TIME},
+      <if test="signDate != null" >
+        #{signDate,jdbcType=TIME},
       </if>
-      <if test="twnbType != null" >
-        #{twnbType,jdbcType=VARCHAR},
+      <if test="signType != null" >
+        #{signType,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByUsername" parameterType="com.lsf.twnb.entity.twnb" >
-    update twnb
+  <update id="updateByUsername" parameterType="com.lsf.twnb.entity.Sign" >
+    update sign
     <set >
       <if test="uid != null" >
         uid = #{uid,jdbcType=INTEGER},
@@ -58,14 +58,14 @@
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="twnbTime != null" >
-        twnb_time = #{twnbTime,jdbcType=DATE},
+      <if test="signTime != null" >
+        sign_time = #{signTime,jdbcType=DATE},
       </if>
-      <if test="twnbDate != null" >
-        twnb_date = #{twnbDate,jdbcType=TIME},
+      <if test="signDate != null" >
+        sign_date = #{signDate,jdbcType=TIME},
       </if>
-      <if test="twnbType != null" >
-        twnb_type = #{twnbType,jdbcType=VARCHAR},
+      <if test="signType != null" >
+        sign_type = #{signType,jdbcType=VARCHAR},
       </if>
     </set>
     where username = #{username,jdbcType=INTEGER}

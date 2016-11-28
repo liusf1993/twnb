@@ -9,11 +9,11 @@ public class Sign {
 
     private String username;
 
-    private Date twnbTime;
+    private Date signTime;
 
-    private Date twnbDate;
+    private Date signDate;
 
-    private String twnbType;
+    private String signType;
 
     public Integer getId() {
         return id;
@@ -36,30 +36,30 @@ public class Sign {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
-    public Date gettwnbTime() {
-        return twnbTime;
+    public Date getSignTime() {
+        return signTime;
     }
 
-    public void settwnbTime(Date twnbTime) {
-        this.twnbTime = twnbTime;
+    public void setSignTime(Date signTime) {
+        this.signTime = signTime;
     }
 
-    public Date gettwnbDate() {
-        return twnbDate;
+    public Date getSignDate() {
+        return signDate;
     }
 
-    public void settwnbDate(Date twnbDate) {
-        this.twnbDate = twnbDate;
+    public void setSignDate(Date signDate) {
+        this.signDate = signDate;
     }
 
-    public String gettwnbType() {
-        return twnbType;
+    public String getSignType() {
+        return signType;
     }
 
-    public void settwnbType(String twnbType) {
-        this.twnbType = twnbType == null ? null : twnbType.trim();
+    public void setSignType(String signType) {
+        this.signType = signType;
     }
 }

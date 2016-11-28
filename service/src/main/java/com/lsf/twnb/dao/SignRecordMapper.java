@@ -1,9 +1,9 @@
 package com.lsf.twnb.dao;
 
-import com.lsf.twnb.entity.Signrecord;
+import com.lsf.twnb.entity.SignRecord;
 import org.apache.ibatis.annotations.*;
 
-public interface SignrecordMapper {
+public interface SignRecordMapper {
     @Delete({
         "delete from SignRecord",
         "where id = #{id,jdbcType=INTEGER}"
@@ -16,9 +16,9 @@ public interface SignrecordMapper {
         "values (#{id,jdbcType=INTEGER}, #{SignType,jdbcType=VARCHAR}, ",
         "#{SignDate,jdbcType=DATE}, #{SignTime,jdbcType=TIME}, #{SignUser,jdbcType=VARCHAR})"
     })
-    int insert(Signrecord record);
+    int insert(SignRecord record);
 
-    int insertSelective(Signrecord record);
+    int insertSelective(SignRecord record);
 
     @Select({
         "select",
@@ -27,7 +27,7 @@ public interface SignrecordMapper {
         "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
-    Signrecord selectByPrimaryKey(Integer id);
+    SignRecord selectByPrimaryKey(Integer id);
 
 
     @Update({
@@ -38,5 +38,5 @@ public interface SignrecordMapper {
           "Sign_user = #{SignUser,jdbcType=VARCHAR}",
         "where id = #{id,jdbcType=INTEGER}"
     })
-    int updateByPrimaryKey(Signrecord record);
+    int updateByPrimaryKey(SignRecord record);
 }
