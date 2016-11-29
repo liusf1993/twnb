@@ -40,6 +40,7 @@ public class IndexController {
                  articleWithContent = articleService.getLastArticle(user.getUsername());
             }
             map.put("article", articleWithContent);
+            map.put("recentTwoArticle",recentTwoArticle);
             map.put("content", new String(articleWithContent.getContent(), SystemConstants.DEFAULT_CHARACTER_SET));
         }
         return "index";

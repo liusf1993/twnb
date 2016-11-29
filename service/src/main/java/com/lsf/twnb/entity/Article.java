@@ -11,6 +11,8 @@ public class Article {
 
     private Date publishdate;
 
+    private String keyWorkd;
+
     public Integer getId() {
         return id;
     }
@@ -36,10 +38,23 @@ public class Article {
     }
 
     public Date getPublishdate() {
-        return publishdate;
+        if(publishdate!=null){
+            return (Date) publishdate.clone();
+        }else{
+            return null;
+        }
+
     }
 
     public void setPublishdate(Date publishdate) {
-        this.publishdate = publishdate;
+        this.publishdate = publishdate!=null? (Date) publishdate.clone() :null;
+    }
+
+    public String getKeyWorkd() {
+        return keyWorkd;
+    }
+
+    public void setKeyWorkd(String keyWorkd) {
+        this.keyWorkd = keyWorkd;
     }
 }

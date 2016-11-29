@@ -2,6 +2,7 @@ package com.lsf.twnb.jms;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
+import org.springframework.util.Assert;
 
 import javax.jms.*;
 
@@ -12,16 +13,19 @@ import javax.jms.*;
 public class ReceiveMessage {
     public static void main(String[] args) throws Exception {
         ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://127.0.0.1:61616");
-        Connection conn=cf.createConnection();
+        Connection conn = cf.createConnection();
         conn.start();
-        Session session=conn.createSession(false,Session.AUTO_ACKNOWLEDGE);
-        Destination destination=new ActiveMQQueue("spitter.queue");
-        MessageConsumer consumer=session.createConsumer(destination);
-        TextMessage message = (TextMessage) consumer.receive();
-        System.out.println("Receive A message"+message.getText());
-        conn.start();
-        if(session!=null){
+        Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        Destination destination = new ActiveMQQueue("spitter.queue");
+
+        if (session != null && destination != null) {
+            MessageConsumer consumer = session.createConsumer(destination);
+            TextMessage message = (TextMessage) consumer.receive();
+            System.out.println("Receive A message" + message.getText());
+            conn.start();
+
             session.close();
+
         }
 
 

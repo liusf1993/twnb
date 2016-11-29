@@ -12,17 +12,15 @@ import javax.jms.*;
 public class TestForActiveMQ {
     public static void main(String[] args) throws Exception {
         ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://127.0.0.1:61616");
-        Connection conn=cf.createConnection();
-        Session session=conn.createSession(false,Session.AUTO_ACKNOWLEDGE);
-        Destination destination=new ActiveMQQueue("spitter.queue");
-        MessageProducer producer=session.createProducer(destination);
-
-        TextMessage message=session.createTextMessage();
-        message.setText("one apple");
-        producer.send(message);
-        if(session!=null){
+        Connection conn = cf.createConnection();
+        Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        Destination destination = new ActiveMQQueue("spitter.queue");
+        if (session != null) {
+            MessageProducer producer = session.createProducer(destination);
+            TextMessage message = session.createTextMessage();
+            message.setText("one apple");
+            producer.send(message);
             session.close();
-
         }
 
 
