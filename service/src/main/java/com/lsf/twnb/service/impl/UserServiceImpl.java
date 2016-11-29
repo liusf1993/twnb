@@ -41,4 +41,8 @@ public class UserServiceImpl implements IUserService
             return null;
         }
     }
+
+    public void deleteUserByUsername(String username) {
+        userMapper.deleteUserByUsername(username);
+    }
 }

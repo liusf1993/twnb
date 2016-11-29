@@ -13,12 +13,10 @@ import java.io.IOException;
  */
 public class CommonFilter implements Filter {
     String ignorePatterns;
-    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         ignorePatterns= "/login|register|/resources/.*"+"|"+SystemConstants.HOME_PATE;
     }
 
-    @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest request= (HttpServletRequest) req;
@@ -34,7 +32,6 @@ public class CommonFilter implements Filter {
         }
     }
 
-    @Override
     public void destroy() {
 
     }

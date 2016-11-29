@@ -7,10 +7,12 @@ import com.lsf.twnb.entity.User;
  */
 public interface IUserService
 {
-    public void insert(User user);
-    public void updateById(User user);
+    void insert(User user);
+    void updateById(User user);
 
     User getUserByName(String username);
 
     User checkUserLogin(User user);
+
+    void deleteUserByUsername(String username);
 }
