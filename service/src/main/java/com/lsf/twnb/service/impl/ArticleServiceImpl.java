@@ -14,7 +14,7 @@ import java.util.List;
  * Created by liusf on 8/27/16.
  */
 @Service
-public class IArticleServiceImpl implements IArticleService {
+public class ArticleServiceImpl implements IArticleService {
     @Autowired
     private ArticleMapper entityMapper;
 

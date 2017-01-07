@@ -20,12 +20,11 @@ import java.io.UnsupportedEncodingException;
  */
 @Controller
 public class IndexController {
+    private IArticleService articleService;
     @Autowired
-    public IndexController(IUserService userService, IArticleService articleService) {
-        Assert.notNull(userService,"no implication found for userService");
-        this.userService = userService;
+    public IndexController(IArticleService articleService) {
+        this.articleService=articleService;
         Assert.notNull(articleService,"no implication found for articleService ");
-        this.articleService = articleService;
     }
 
     @RequestMapping(value = {"/index", ""})
