@@ -30,19 +30,19 @@ public class SignRecord {
     }
 
     public Date getSignDate() {
-        return signDate;
+        return signDate!=null? (Date) signDate.clone() :null;
     }
 
     public void setSignDate(Date signDate) {
-        this.signDate = signDate;
+        this.signDate = signDate!=null? (Date) signDate.clone() :null;
     }
 
     public Date getSignTime() {
-        return signTime;
+        return signTime!=null? (Date) signTime.clone() :null;
     }
 
     public void setSignTime(Date signTime) {
-        this.signTime = signTime;
+        this.signTime = signTime!=null? (Date) signTime.clone() :null;
     }
 
     public String getSignUser() {

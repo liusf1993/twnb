@@ -20,10 +20,6 @@ import java.io.UnsupportedEncodingException;
  */
 @Controller
 public class IndexController {
-    private final IArticleService articleService;
-
-    private final IUserService userService;
-
     @Autowired
     public IndexController(IUserService userService, IArticleService articleService) {
         Assert.notNull(userService,"no implication found for userService");

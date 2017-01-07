@@ -40,19 +40,23 @@ public class Sign {
     }
 
     public Date getSignTime() {
-        return signTime;
+        return signTime!=null? (Date) signTime.clone() :null;
     }
 
     public void setSignTime(Date signTime) {
-        this.signTime = signTime;
+        this.signTime = signTime!=null? (Date) signTime.clone() :null;
     }
 
     public Date getSignDate() {
-        return signDate;
+        if(signDate!=null){
+            return (Date) signDate.clone();
+        }else{
+            return null;
+        }
     }
 
     public void setSignDate(Date signDate) {
-        this.signDate = signDate;
+        this.signDate = signDate!=null? (Date) signDate.clone() :null;
     }
 
     public String getSignType() {

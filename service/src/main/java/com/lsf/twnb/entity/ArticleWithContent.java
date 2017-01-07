@@ -6,18 +6,26 @@ public class ArticleWithContent extends Article {
     private byte[] comment;
 
     public byte[] getContent() {
-        return content;
+        if(content!=null){
+            return content.clone();
+        }else{
+            return null;
+        }
     }
 
     public void setContent(byte[] content) {
-        this.content = content;
+        this.content = content!=null?content.clone():null;
     }
 
     public byte[] getComment() {
-        return comment;
+        if(comment!=null) {
+            return comment.clone();
+        }else{
+            return null;
+        }
     }
 
     public void setComment(byte[] comment) {
-        this.comment = comment;
+        this.comment = comment!=null?comment.clone():null;
     }
 }

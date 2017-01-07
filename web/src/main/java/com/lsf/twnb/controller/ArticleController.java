@@ -22,13 +22,12 @@ public class ArticleController {
 
     @RequestMapping(value = "/postBlog", method = RequestMethod.GET)
     public String toPostArticle(HttpSession session) {
-        User user = (User) session.getAttribute("user");
         return "article/postBlog";
 
     }
 
     @RequestMapping(value = "/postBlog", method = RequestMethod.POST)
-    public String doPostArticle( HttpServletRequest request) {
+    public String doPostArticle( HttpServletRequest request) throws Exception {
         User user= (User) request.getSession().getAttribute("user");
         String content=request.getParameter("blogContent");
 
@@ -39,7 +38,8 @@ public class ArticleController {
         article.setAuthor(user.getUsername());
         article.setTitle(title);
         article.setAuthor(user.getUsername());
-        article.setContent(content.getBytes());
+        article.setKeyWorkd(keyWord);
+        article.setContent(content.getBytes("utf8"));
         articleService.saveArticle(article);
 
         return "article/postBlog";
