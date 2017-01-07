@@ -12,7 +12,7 @@ import java.io.IOException;
  * liusf1993
  */
 public class CommonFilter implements Filter {
-    String ignorePatterns;
+    private String ignorePatterns;
     public void init(FilterConfig filterConfig) throws ServletException {
         ignorePatterns= "/login|register|/resources/.*"+"|"+SystemConstants.HOME_PATE;
     }

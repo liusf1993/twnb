@@ -10,6 +10,19 @@ import org.junit.Test;
  * @Description
  */
 public class StringUtilTest {
+
+
+    @Test
+    public void isBlank() throws Exception {
+        Assert.assertEquals(true,StringUtil.isNotBlank(""));
+        Assert.assertEquals(true,StringUtil.isNotBlank(null));
+        Assert.assertEquals(true,StringUtil.isNotBlank("   "));
+        Assert.assertEquals(true,StringUtil.isNotBlank("\n"));
+        Assert.assertEquals(true,StringUtil.isNotBlank("\r"));
+        Assert.assertEquals(true,StringUtil.isNotBlank("\t"));
+        Assert.assertEquals(false,StringUtil.isNotBlank("abcdefg"));
+    }
+
     @Test
     public void isNotBlank() throws Exception {
         Assert.assertEquals(false,StringUtil.isNotBlank(""));

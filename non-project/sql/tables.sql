@@ -6,7 +6,7 @@ CREATE TABLE Article
   author VARCHAR(30),
   publishdate DATETIME,
   comment BLOB,
-  CONSTRAINT `PRIMARY` PRIMARY KEY (id, id, id, id)
+  CONSTRAINT `PRIMARY` PRIMARY KEY (id)
 );
 CREATE TABLE User
 (
@@ -18,6 +18,6 @@ CREATE TABLE User
   sex VARCHAR(1) COMMENT '0 female,1male',
   company VARCHAR(255),
   name VARCHAR(255) COMMENT 'nickname',
-  CONSTRAINT `PRIMARY` PRIMARY KEY (id, id, id, id)
+  CONSTRAINT `PRIMARY` PRIMARY KEY (id)
 );
 CREATE UNIQUE INDEX USER_INDEX ON User (username);

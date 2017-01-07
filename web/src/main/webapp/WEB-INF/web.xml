@@ -45,7 +45,7 @@
     </filter>
     <filter-mapping>
         <filter-name>commonFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </filter-mapping>
 
     <!-- Spring MVC 核心控制器 DispatcherServlet 配置 -->

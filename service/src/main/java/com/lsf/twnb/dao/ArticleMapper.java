@@ -77,4 +77,6 @@ public interface ArticleMapper {
     List<ArticleWithContent> getRecentTwoArticle(String username);
 
     ArticleWithContent getNextArticle(@Param("currentBlogId") String currentBlogId, @Param("type") String type);
+
+    ArticleWithContent getRecentArticle();
 }

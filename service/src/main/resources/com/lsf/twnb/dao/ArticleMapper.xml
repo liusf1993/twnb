@@ -96,4 +96,8 @@
       </choose>
          #{currentBlogId}  limit 0,1
     </select>
+    <select id="getRecentArticle" resultMap="ResultMapWithBLOBs">
+      select <include refid="Base_Column_List"/>
+       from Article order by publishdate limit 0,1
+    </select>
 </mapper>

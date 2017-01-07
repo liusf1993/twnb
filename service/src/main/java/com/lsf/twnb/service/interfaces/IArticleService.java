@@ -1,6 +1,7 @@
 package com.lsf.twnb.service.interfaces;
 
 import com.lsf.twnb.entity.ArticleWithContent;
+import com.lsf.twnb.entity.User;
 
 import java.util.List;
 
@@ -15,4 +16,8 @@ public interface IArticleService {
     List<ArticleWithContent> getRecentTwoArticle(String username);
 
     ArticleWithContent getLastArticle(String currentBlogId, String type);
+
+    ArticleWithContent getRecentArticle();
+
+    ArticleWithContent getArticleByUser(User user, String currentBlogId, String type);
 }
