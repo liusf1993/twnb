@@ -7,20 +7,21 @@ import org.junit.Test;
 /**
  * @Author liusf13201
  * @Date 2016/11/28
- * @Description
+ * @Description string util 测试用例
+ *
  */
 public class StringUtilTest {
 
 
     @Test
     public void isBlank() throws Exception {
-        Assert.assertEquals(true,StringUtil.isNotBlank(""));
-        Assert.assertEquals(true,StringUtil.isNotBlank(null));
-        Assert.assertEquals(true,StringUtil.isNotBlank("   "));
-        Assert.assertEquals(true,StringUtil.isNotBlank("\n"));
-        Assert.assertEquals(true,StringUtil.isNotBlank("\r"));
-        Assert.assertEquals(true,StringUtil.isNotBlank("\t"));
-        Assert.assertEquals(false,StringUtil.isNotBlank("abcdefg"));
+        Assert.assertEquals(true,StringUtil.isBlank(""));
+        Assert.assertEquals(true,StringUtil.isBlank(null));
+        Assert.assertEquals(true,StringUtil.isBlank("   "));
+        Assert.assertEquals(true,StringUtil.isBlank("\n"));
+        Assert.assertEquals(true,StringUtil.isBlank("\r"));
+        Assert.assertEquals(true,StringUtil.isBlank("\t"));
+        Assert.assertEquals(false,StringUtil.isBlank("abcdefg"));
     }
 
     @Test
