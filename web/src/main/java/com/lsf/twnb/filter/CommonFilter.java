@@ -14,7 +14,7 @@ import java.io.IOException;
 public class CommonFilter implements Filter {
     private String ignorePatterns;
     public void init(FilterConfig filterConfig) throws ServletException {
-        ignorePatterns= "/login|register|/resources/.*"+"|"+SystemConstants.HOME_PATE;
+        ignorePatterns=".*(login|register|resources|index|).*";
     }
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
