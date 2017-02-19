@@ -1,4 +1,4 @@
-package com.lsf.twnb.utils;
+package com.lsf.twnb.common.utils;
 
 /**
  * @Author liusf13201

@@ -4,6 +4,9 @@ import com.lsf.twnb.entity.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import twnb.query.concrete.UserPageQuery;
+
+import java.util.List;
 
 public interface UserMapper {
     void insert(User user);
@@ -15,4 +18,7 @@ public interface UserMapper {
 
     @Delete("delete from User where username=#{username}")
     void deleteUserByUsername(@Param("username") String username);
+
+
+    List<User> queryUser(UserPageQuery userQuery);
 }

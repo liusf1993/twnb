@@ -1,5 +1,6 @@
-package com.lsf.twnb.utils;
+package com.lsf.twnb.dao.com.lsf.twnb.utils;
 
+import com.lsf.twnb.common.utils.StringUtil;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class StringUtilTest {
 
     @Test
     public void isBlank() throws Exception {
-        Assert.assertEquals(true,StringUtil.isBlank(""));
+        Assert.assertEquals(true, StringUtil.isBlank(""));
         Assert.assertEquals(true,StringUtil.isBlank(null));
         Assert.assertEquals(true,StringUtil.isBlank("   "));
         Assert.assertEquals(true,StringUtil.isBlank("\n"));

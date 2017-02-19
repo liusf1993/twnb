@@ -2,6 +2,7 @@ package com.lsf.twnb.service.interfaces;
 
 import com.lsf.twnb.entity.ArticleWithContent;
 import com.lsf.twnb.entity.User;
+import twnb.query.concrete.BlogPageQuery;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface IArticleService {
     ArticleWithContent getRecentArticle();
 
     ArticleWithContent getArticleByUser(User user, String currentBlogId, String type);
+
+    BlogPageQuery queryArticleList(BlogPageQuery blogPageQuery);
 }

@@ -4,9 +4,10 @@ import com.lsf.twnb.dao.ArticleMapper;
 import com.lsf.twnb.entity.ArticleWithContent;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IArticleService;
-import com.lsf.twnb.utils.StringUtil;
+import com.lsf.twnb.common.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import twnb.query.concrete.BlogPageQuery;
 
 import java.util.List;
 
@@ -52,5 +53,11 @@ public class ArticleServiceImpl implements IArticleService {
         }else{
             return getLastArticle(currentBlogId, type);
         }
+    }
+
+    @Override
+    public BlogPageQuery queryArticleList(BlogPageQuery blogPageQuery) {
+        blogPageQuery.setItems(entityMapper.queryArticleList(blogPageQuery));
+        return blogPageQuery;
     }
 }

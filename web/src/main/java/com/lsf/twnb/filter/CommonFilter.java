@@ -1,5 +1,6 @@
 package com.lsf.twnb.filter;
 
+import com.lsf.twnb.constants.SessionConstants;
 import com.lsf.twnb.constants.SystemConstants;
 
 import javax.servlet.*;
@@ -23,7 +24,7 @@ public class CommonFilter implements Filter {
         HttpServletResponse response= (HttpServletResponse) res;
         //if the request path is not homepage and user hasn't login, redirect to homepage
         if(!(request.getServletPath().matches(ignorePatterns))
-                &&request.getSession().getAttribute(SystemConstants.USER_ATTRIBUTE)==null){
+                &&request.getSession().getAttribute(SessionConstants.USER)==null){
             response.sendRedirect(request.getContextPath()+SystemConstants.HOME_PATE);
         }else {
             //set context path in attributes

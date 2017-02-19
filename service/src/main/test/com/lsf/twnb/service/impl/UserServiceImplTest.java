@@ -26,7 +26,7 @@ public class UserServiceImplTest extends BaseTest {
 
         userService.insert(newUser);
 
-        User user = userService.getUserByName(newUser.getUsername());
+        User user = userService.getUserByName(newUser.getUsername()).getItems().get(0);
         Assert.assertEquals(user.getUsername(), newUser.getUsername());
 
 

@@ -3,6 +3,7 @@ package com.lsf.twnb.dao;
 import com.lsf.twnb.entity.Article;
 import com.lsf.twnb.entity.ArticleWithContent;
 import org.apache.ibatis.annotations.*;
+import twnb.query.concrete.BlogPageQuery;
 
 import java.util.List;
 
@@ -79,4 +80,6 @@ public interface ArticleMapper {
     ArticleWithContent getNextArticle(@Param("currentBlogId") String currentBlogId, @Param("type") String type);
 
     ArticleWithContent getRecentArticle();
+
+    List<Article> queryArticleList(BlogPageQuery username);
 }

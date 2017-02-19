@@ -90,4 +90,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="queryUser" parameterType="twnb.query.concrete.UserPageQuery" resultType="com.lsf.twnb.entity.User">
+    select <include refid="Base_Column_List"/> from User u where username=#{username}
+  </select>
 </mapper>

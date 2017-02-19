@@ -1,0 +1,6 @@
+我的博客<br/>$queryResult.totalCount
+#foreach($item in ${queryResult.items})
+${item.id}
+${item.title}<br/>
+${item.publishdate}<br/>
+#end

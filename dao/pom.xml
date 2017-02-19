@@ -6,13 +6,15 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>service</artifactId>
+
+    <artifactId>dao</artifactId>
     <packaging>jar</packaging>
-    <name>service</name>
-    <url>https://github.com/liusf1993/twnb/service</url>
+
+    <name>dao</name>
+    <url>http://maven.apache.org</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.finalName>twnb-service</project.build.finalName>
     </properties>
 
     <dependencies>
@@ -112,15 +114,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.lsf.twnb</groupId>
-            <artifactId>dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <!--test end-->
     </dependencies>
-    <build>
-        <finalName>twnb-service</finalName>
-    </build>
 </project>

@@ -100,4 +100,8 @@
       select <include refid="Base_Column_List"/>
        from Article order by publishdate limit 0,1
     </select>
+  <select id="queryArticleList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from Article
+  </select>
 </mapper>

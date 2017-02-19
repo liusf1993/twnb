@@ -4,7 +4,6 @@ import com.lsf.twnb.constants.SystemConstants;
 import com.lsf.twnb.entity.ArticleWithContent;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IArticleService;
-import com.lsf.twnb.service.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,7 +26,7 @@ public class IndexController {
         Assert.notNull(articleService,"no implication found for articleService ");
     }
 
-    @RequestMapping(value = {"/index", ""})
+    @RequestMapping(value = {"/index", "/"})
     public String index(HttpServletRequest request, ModelMap map) throws UnsupportedEncodingException {
 
         putArticleInfo:{

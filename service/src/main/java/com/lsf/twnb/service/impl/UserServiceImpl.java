@@ -3,8 +3,10 @@ package com.lsf.twnb.service.impl;
 import com.lsf.twnb.dao.UserMapper;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IUserService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import twnb.query.concrete.UserPageQuery;
 
 /**
  * Created by liusf13201 on 2015/11/18.
@@ -25,8 +27,11 @@ public class UserServiceImpl implements IUserService
         userMapper.updateById(user);
     }
 
-    public User getUserByName(String username) {
-        return userMapper.getUserByName(username);
+    public UserPageQuery getUserByName(String username) {
+        UserPageQuery userQuery=new UserPageQuery();
+        userQuery.setUsername(username);
+        userQuery.setItems(userMapper.queryUser(userQuery));
+        return userQuery;
     }
 
     public User checkUserLogin(User user) {

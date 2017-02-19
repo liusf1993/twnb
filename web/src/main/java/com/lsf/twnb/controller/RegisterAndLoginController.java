@@ -2,7 +2,7 @@ package com.lsf.twnb.controller;
 
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IUserService;
-import com.lsf.twnb.utils.StringUtil;
+import com.lsf.twnb.common.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -61,7 +61,7 @@ public class RegisterAndLoginController {
         String backUrl=request.getParameter("backUrl");
         /*if the information is correct, go to backUrl if it exists,
         else, give error info*/
-        user=userService.checkUserLogin(user);
+        user=userService.getUserByName(user.getUsername()).getItems().get(0);
         if(user==null){
             map.put("errorInfo","username or password is not correct");
             return "redirect:/index";
