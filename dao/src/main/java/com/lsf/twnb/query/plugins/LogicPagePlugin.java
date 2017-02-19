@@ -1,4 +1,4 @@
-package com.lsf.twnb.dao.plugins;
+package com.lsf.twnb.query.plugins;
 
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <plugins>
-        <plugin interceptor="com.lsf.twnb.dao.plugins.PagePlugin">
+        <plugin interceptor="com.lsf.twnb.query.plugins.PagePlugin">
             <property name="dbType" value="mysql"/>
         </plugin>
     </plugins>

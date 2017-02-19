@@ -3,7 +3,6 @@ package com.lsf.twnb.service.impl;
 import com.lsf.twnb.dao.UserMapper;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IUserService;
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import twnb.query.concrete.UserPageQuery;

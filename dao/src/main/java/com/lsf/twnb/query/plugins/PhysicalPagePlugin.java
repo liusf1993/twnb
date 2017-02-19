@@ -1,9 +1,10 @@
-package com.lsf.twnb.dao.plugins;
+package com.lsf.twnb.query.plugins;
 
 import com.lsf.twnb.Exception.ConfigurationException;
 import com.lsf.twnb.common.dialect.IDialect;
 import com.lsf.twnb.common.dialect.MySqlDialect;
 import com.lsf.twnb.common.dialect.OracleDialect;
+import com.lsf.twnb.query.base.PageQuery;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.RoutingStatementHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
@@ -20,8 +21,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
-
-import com.lsf.twnb.dao.base.PageQuery;
 
 /**
  * 基于mybatis的物理分页

@@ -1,7 +1,6 @@
 package com.lsf.twnb.controller.blog;
 
 import com.lsf.twnb.constants.SessionConstants;
-import com.lsf.twnb.entity.Article;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IArticleService;
 import org.slf4j.Logger;
@@ -14,7 +13,6 @@ import twnb.query.concrete.BlogPageQuery;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * Controller for manager blog

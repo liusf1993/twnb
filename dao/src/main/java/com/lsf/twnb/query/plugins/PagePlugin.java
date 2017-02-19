@@ -1,9 +1,9 @@
-package com.lsf.twnb.dao.plugins;
+package com.lsf.twnb.query.plugins;
 
 
 import com.lsf.twnb.common.dialect.IDialect;
 import com.lsf.twnb.common.dialect.MySqlDialect;
-import com.lsf.twnb.dao.base.PageQuery;
+import com.lsf.twnb.query.base.PageQuery;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.mapping.BoundSql;

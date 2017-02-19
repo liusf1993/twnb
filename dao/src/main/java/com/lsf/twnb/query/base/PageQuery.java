@@ -1,4 +1,4 @@
-package com.lsf.twnb.dao.base;
+package com.lsf.twnb.query.base;
 
 import java.io.Serializable;
 import java.util.Collections;

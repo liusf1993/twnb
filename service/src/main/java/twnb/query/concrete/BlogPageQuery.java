@@ -1,6 +1,6 @@
 package twnb.query.concrete;
 
-import com.lsf.twnb.dao.base.PageQuery;
+import com.lsf.twnb.query.base.PageQuery;
 import com.lsf.twnb.entity.Article;
 
 /**
