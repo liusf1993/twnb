@@ -1,4 +1,7 @@
-package com.lsf.twnb.Exception;
+package com.lsf.twnb.exception;
+
+import org.slf4j.helpers.FormattingTuple;
+import org.slf4j.helpers.MessageFormatter;
 
 /**
  * 系统范围内的异常
@@ -19,6 +22,11 @@ public class TwnbException extends Exception{
     }
     public TwnbException(String errorMessage){
         this.errorMessage=errorMessage;
+
+    }
+    public TwnbException(String errorFormat,Object  arg){
+        FormattingTuple ft = MessageFormatter.format(errorFormat, arg);
+        this.errorMessage=ft.getMessage();
 
     }
     public TwnbException(int errorCode,String errorMessage){

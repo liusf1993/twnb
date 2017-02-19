@@ -1,10 +1,10 @@
 package com.lsf.twnb.dao;
 
 import com.lsf.twnb.entity.User;
+import com.lsf.twnb.query.concrete.UserPageQuery;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import twnb.query.concrete.UserPageQuery;
 
 import java.util.List;
 

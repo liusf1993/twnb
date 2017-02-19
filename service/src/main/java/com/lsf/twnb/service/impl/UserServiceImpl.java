@@ -5,7 +5,7 @@ import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import twnb.query.concrete.UserPageQuery;
+import com.lsf.twnb.query.concrete.UserPageQuery;
 
 /**
  * Created by liusf13201 on 2015/11/18.

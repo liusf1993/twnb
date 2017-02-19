@@ -1,7 +1,7 @@
 package com.lsf.twnb.service.interfaces;
 
 import com.lsf.twnb.entity.User;
-import twnb.query.concrete.UserPageQuery;
+import com.lsf.twnb.query.concrete.UserPageQuery;
 
 /**
  * Created by liusf13201 on 2015/11/18.

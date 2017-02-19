@@ -2,7 +2,8 @@ package com.lsf.twnb.service.interfaces;
 
 import com.lsf.twnb.entity.ArticleWithContent;
 import com.lsf.twnb.entity.User;
-import twnb.query.concrete.BlogPageQuery;
+import com.lsf.twnb.exception.TwnbException;
+import com.lsf.twnb.query.concrete.BlogPageQuery;
 
 import java.util.List;
 
@@ -23,4 +24,11 @@ public interface IArticleService {
     ArticleWithContent getArticleByUser(User user, String currentBlogId, String type);
 
     BlogPageQuery queryArticleList(BlogPageQuery blogPageQuery);
+
+    /**
+     * 根据ID获取文章
+     * @param blogId
+     * @return
+     */
+    ArticleWithContent getArticleById(int blogId) throws TwnbException;
 }

@@ -2,8 +2,8 @@ package com.lsf.twnb.dao;
 
 import com.lsf.twnb.entity.Article;
 import com.lsf.twnb.entity.ArticleWithContent;
+import com.lsf.twnb.query.concrete.BlogPageQuery;
 import org.apache.ibatis.annotations.*;
-import twnb.query.concrete.BlogPageQuery;
 
 import java.util.List;
 
@@ -66,7 +66,6 @@ public interface ArticleMapper {
     @ResultMap("ResultMapWithBLOBs")
     ArticleWithContent getLastArtile(@Param(value = "username") String username);
 
-    void saveArticle();
 
     @Select({
             "select",
@@ -82,4 +81,13 @@ public interface ArticleMapper {
     ArticleWithContent getRecentArticle();
 
     List<Article> queryArticleList(BlogPageQuery username);
+
+    @Select({
+            "select",
+            "id, title, author, publishDate, content, comment",
+            "from Article",
+            "where id = #{blogId}"
+    })
+    @ResultMap("ResultMapWithBLOBs")
+    ArticleWithContent getArticleById(@Param("blogId") int blogId);
 }

@@ -1,6 +1,6 @@
 package com.lsf.twnb.query.plugins;
 
-import com.lsf.twnb.Exception.ConfigurationException;
+import com.lsf.twnb.exception.ConfigurationException;
 import com.lsf.twnb.common.dialect.IDialect;
 import com.lsf.twnb.common.dialect.MySqlDialect;
 import com.lsf.twnb.common.dialect.OracleDialect;

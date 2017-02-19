@@ -5,6 +5,16 @@ public class ArticleWithContent extends Article {
 
     private byte[] comment;
 
+    public String getStrContent() {
+        return strContent;
+    }
+
+    public void setStrContent(String strContent) {
+        this.strContent = strContent;
+    }
+
+    private String strContent;
+
     public byte[] getContent() {
         if(content!=null){
             return content.clone();

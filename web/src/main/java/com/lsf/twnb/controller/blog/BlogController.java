@@ -1,15 +1,18 @@
 package com.lsf.twnb.controller.blog;
 
 import com.lsf.twnb.constants.SessionConstants;
+import com.lsf.twnb.entity.ArticleWithContent;
 import com.lsf.twnb.entity.User;
+import com.lsf.twnb.exception.TwnbException;
 import com.lsf.twnb.service.interfaces.IArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import twnb.query.concrete.BlogPageQuery;
+import com.lsf.twnb.query.concrete.BlogPageQuery;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -41,6 +44,13 @@ public class BlogController {
         map.put("queryResult",articleList);
         logger.info(page);
         return PREFIX+"/blogList";
+    }
+
+    @RequestMapping(value="/viewBlog/{blogId}.htm")
+    public String viewBlog(@PathVariable int blogId,HttpServletRequest request,ModelMap map) throws TwnbException {
+        ArticleWithContent articleWithContent=articleService.getArticleById(blogId);
+        map.put("blog",articleWithContent);
+        return PREFIX+"/blog";
     }
 
 

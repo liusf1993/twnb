@@ -1,4 +1,4 @@
-package com.lsf.twnb.Exception;
+package com.lsf.twnb.exception;
 
 /**
  * 配置异常

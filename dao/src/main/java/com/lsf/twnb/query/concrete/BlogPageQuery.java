@@ -1,4 +1,4 @@
-package twnb.query.concrete;
+package com.lsf.twnb.query.concrete;
 
 import com.lsf.twnb.query.base.PageQuery;
 import com.lsf.twnb.entity.Article;

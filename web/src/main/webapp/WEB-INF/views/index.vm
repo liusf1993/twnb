@@ -7,8 +7,8 @@
         <div class="sidebar-module">
             <h3>目录结构</h3>
             <ol class="list-unstyled">
-                <li><a href="#">我的博客</a></li>
-                <li><a href="${ctx}/blog/getBlogList">热点评论</a></li>
+                <li><a href="${ctx}/blog/getBlogList">我的博客</a></li>
+                <li><a href="#">热点评论</a></li>
                 <li><a href="#">我的BUG</a></li>
                 <li><a href="#">编程心得</a></li>
                 <li><a href="#">其他</a></li>

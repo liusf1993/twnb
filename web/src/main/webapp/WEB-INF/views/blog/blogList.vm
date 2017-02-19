@@ -1,6 +1,6 @@
 我的博客<br/>$queryResult.totalCount
 #foreach($item in ${queryResult.items})
 ${item.id}
-${item.title}<br/>
+<a href="${ctx}/blog/viewBlog/$!{item.id}.htm" target="_blank"> ${item.title}<br/></a>
 ${item.publishdate}<br/>
 #end
