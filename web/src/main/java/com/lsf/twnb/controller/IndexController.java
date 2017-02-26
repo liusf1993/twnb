@@ -27,17 +27,17 @@ public class IndexController {
     }
 
     @RequestMapping(value = {"/index", "/"})
-    public String index(HttpServletRequest request, ModelMap map) throws UnsupportedEncodingException {
+    public String index(HttpServletRequest request, ModelMap map,String blogId,String type) throws UnsupportedEncodingException {
 
         putArticleInfo:{
             User user = (User) request.getSession().getAttribute("user");
             if(user==null){
                 break putArticleInfo;
             }
-            String type = request.getParameter("type");
-            String currentBlogId = request.getParameter("blogId");
+
+
             ArticleWithContent articleWithContent =
-                    articleService.getArticleByUser(user, currentBlogId, type);
+                    articleService.getArticleByUser(user, blogId, type);
             if(articleWithContent==null){
                 break putArticleInfo;
             }

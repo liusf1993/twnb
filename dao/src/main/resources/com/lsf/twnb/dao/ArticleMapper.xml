@@ -84,9 +84,9 @@
     <select id="getNextArticle" resultType="com.lsf.twnb.entity.ArticleWithContent">
             select id, title, author, publishDate, content, comment
             from Article
-            where id
+            where #{type}=#{type} and id
       <choose>
-        <when test="type !=null">
+        <when test='"1".equals(type)'>
           &gt;
         </when>
         <otherwise>
@@ -94,7 +94,17 @@
         </otherwise>
 
       </choose>
-         #{currentBlogId}  limit 0,1
+         #{currentBlogId}  order by publishdate
+      <choose>
+        <when test="type==1">
+          desc
+        </when>
+        <otherwise>
+          asc
+        </otherwise>
+      </choose>
+
+      limit 0,1
     </select>
     <select id="getRecentArticle" resultMap="ResultMapWithBLOBs">
       select <include refid="Base_Column_List"/>

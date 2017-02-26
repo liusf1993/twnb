@@ -2,6 +2,8 @@ package com.lsf.twnb.jms;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.jms.*;
 
@@ -10,6 +12,7 @@ import javax.jms.*;
  * @DATE: 2016/10/9
  */
 public class TestForActiveMQ {
+
     public static void main(String[] args) throws Exception {
         ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://127.0.0.1:61616");
         Connection conn = cf.createConnection();

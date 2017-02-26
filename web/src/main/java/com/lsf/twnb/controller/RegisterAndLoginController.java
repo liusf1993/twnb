@@ -38,6 +38,7 @@ public class RegisterAndLoginController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String doRegister(User user, HttpServletRequest request) {
+        userService.checkUserLogin(user);
         String backUrl = request.getParameter("backUrl");
         try {
             userService.insert(user);

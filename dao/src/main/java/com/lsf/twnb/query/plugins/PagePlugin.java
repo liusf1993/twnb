@@ -9,6 +9,7 @@ import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
+import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.scripting.defaults.DefaultParameterHandler;
 import org.apache.ibatis.scripting.xmltags.SqlNode;
@@ -45,6 +46,8 @@ public class PagePlugin implements Interceptor {
             return invocation.proceed();
         }
         MappedStatement ms = (MappedStatement) invocation.getArgs()[0];
+        MetaObject mt=SystemMetaObject.forObject(ms);
+        mt.getValue("sqlSource");
         List<SqlNode> textSqlNodes = (List<SqlNode>)
                 SystemMetaObject.forObject(ms).getValue("sqlSource.rootSqlNode.contents");
         if (textSqlNodes.lastIndexOf(mysqlPageNode) != textSqlNodes.size() - 1) {

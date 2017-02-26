@@ -51,13 +51,10 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public ArticleWithContent getArticleByUser(User user, String currentBlogId, String type) {
-        if (user == null) {
-            return getRecentArticle();
-        } else if (StringUtil.isBlank(currentBlogId)) {
-            return getLastArticle(user.getUsername());
-
-        }else{
+        if("1".equals(type)){
             return getLastArticle(currentBlogId, type);
+        }else{
+            return getLastArticle(currentBlogId,"-1");
         }
     }
 

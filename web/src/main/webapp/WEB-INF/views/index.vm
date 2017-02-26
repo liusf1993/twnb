@@ -30,12 +30,12 @@
             <p class="blog-post-meta">10/09, 2014 by <a href="https://github.com/liusf1993">$!{article.author}</a></p>
             $!{content}
         </div><!-- /.blog-post -->
-
+        ${article.id}
 
         <nav>
             <ul class="pager">
-                <li><a href="$ctx/index?blogId=$!{article.id}&type=1">Previous</a></li>
-                <li><a href="$ctx/index?blogId=$!{article.id}&type=-1">Next</a></li>
+                <li><a href="$ctx/index?blogId=$!{article.id}&type=-1">Previous</a></li>
+                <li><a href="$ctx/index?blogId=$!{article.id}&type=1">Next</a></li>
             </ul>
         </nav>
 
