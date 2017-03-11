@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolbox>
+    <xhtml>true</xhtml>
+    <tool>
+        <key>StringUtil</key>
+        <scope>application</scope>
+        <class>com.lsf.twnb.common.utils.StringUtil</class>
+    </tool>
+    <tool>
+        <key>DateFormatUtil</key>
+        <scope>application</scope>
+        <class>com.lsf.twnb.common.utils.DateFormatUtil</class>
+    </tool>
+</toolbox>

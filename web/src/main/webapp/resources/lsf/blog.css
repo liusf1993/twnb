@@ -138,17 +138,20 @@ h6, .h6 {
  */
 
 .blog-post {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 .blog-post-title {
   margin-bottom: 5px;
   font-size: 40px;
 }
 .blog-post-meta {
-  margin-bottom: 20px;
+  float: right;
+  margin-bottom: 5px;
   color: #999;
 }
-
+.blog-content{
+    text-align: center;
+}
 
 /*
  * Footer

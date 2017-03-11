@@ -3,10 +3,8 @@ package com.lsf.twnb.service.impl;
 import com.lsf.twnb.constants.SystemConstants;
 import com.lsf.twnb.dao.ArticleMapper;
 import com.lsf.twnb.entity.ArticleWithContent;
-import com.lsf.twnb.entity.User;
 import com.lsf.twnb.exception.TwnbException;
 import com.lsf.twnb.service.interfaces.IArticleService;
-import com.lsf.twnb.common.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
- * Created by liusf on 8/27/16.
+ * Blog info
  */
 @Service
 public class ArticleServiceImpl implements IArticleService {
@@ -50,13 +48,10 @@ public class ArticleServiceImpl implements IArticleService {
     }
 
     @Override
-    public ArticleWithContent getArticleByUser(User user, String currentBlogId, String type) {
-        if("1".equals(type)){
-            return getLastArticle(currentBlogId, type);
-        }else{
-            return getLastArticle(currentBlogId,"-1");
-        }
+    public ArticleWithContent getArticleByUser(String username, Integer currentBlogId, String type) throws TwnbException {
+        return entityMapper.getArticle(currentBlogId, username,type);
     }
+
 
     @Override
     public BlogPageQuery queryArticleList(BlogPageQuery blogPageQuery) {

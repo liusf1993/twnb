@@ -37,7 +37,8 @@
     </filter>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.htm</url-pattern>
+        <url-pattern>*.json</url-pattern>
     </filter-mapping>
     <filter>
         <filter-name>commonFilter</filter-name>
@@ -45,7 +46,8 @@
     </filter>
     <filter-mapping>
         <filter-name>commonFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.htm</url-pattern>
+        <url-pattern>*.json</url-pattern>
     </filter-mapping>
 
     <!-- Spring MVC 核心控制器 DispatcherServlet 配置 -->
@@ -60,7 +62,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springDispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.htm</url-pattern>
+        <url-pattern>*.json</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>403</error-code>
@@ -75,7 +78,7 @@
     </error-page>
     <!-- 首页 -->
     <welcome-file-list>
-        <welcome-file>/index.jsp</welcome-file>
+        <welcome-file>/index.htm</welcome-file>
     </welcome-file-list>
 
 </web-app>

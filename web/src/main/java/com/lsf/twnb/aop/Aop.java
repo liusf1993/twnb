@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Aop {
-    @Pointcut("execution(* com.lsf.twnb.controller.ArticleController.doPostArticle(..))")
+    @Pointcut("execution(* com.lsf.twnb.controller.*.*(..))")
     public void hello(){
 
     }

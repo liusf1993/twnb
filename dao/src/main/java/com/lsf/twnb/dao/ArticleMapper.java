@@ -90,4 +90,7 @@ public interface ArticleMapper {
     })
     @ResultMap("ResultMapWithBLOBs")
     ArticleWithContent getArticleById(@Param("blogId") int blogId);
+
+    ArticleWithContent getArticle(@Param("id") Integer id,@Param("author")String username,
+                                  @Param("type")String type);
 }

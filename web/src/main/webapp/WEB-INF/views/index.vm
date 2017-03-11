@@ -7,11 +7,10 @@
         <div class="sidebar-module">
             <h3>目录结构</h3>
             <ol class="list-unstyled">
-                <li><a href="${ctx}/blog/getBlogList">我的博客</a></li>
+                <li><a href="${ctx}/blog/getBlogList.htm">我的博客</a></li>
                 <li><a href="#">热点评论</a></li>
                 <li><a href="#">我的BUG</a></li>
                 <li><a href="#">编程心得</a></li>
-                <li><a href="#">其他</a></li>
             </ol>
         </div>
 
@@ -26,12 +25,14 @@
     </div>
     <div class="col-sm-8 blog-main" style="height:82%;overflow-y: auto;">
         <div class="blog-post">
-            <h3 class="blog-post-title">$!{article.title}</h3>
-            <p class="blog-post-meta">10/09, 2014 by <a href="https://github.com/liusf1993">$!{article.author}</a></p>
+            <h3 class="blog-post-title">$!{blog.title}</h3>
+            <p class="blog-post-meta">${DateFormatUtil.format(${blog.publishDate},'yyyy/MM/dd')}<a
+                    href="https://github.com/liusf1993">$!{article.author}</a></p>
             $!{content}
-        </div><!-- /.blog-post -->
-        ${article.id}
-
+        </div>
+        <div class="blog-content">
+            $blog.strContent
+        </div>
         <nav>
             <ul class="pager">
                 <li><a href="$ctx/index?blogId=$!{article.id}&type=-1">Previous</a></li>
@@ -40,33 +41,6 @@
         </nav>
 
     </div>
-
-#* <div id="authorInfo"  class="col-sm-2 col-sm-offset-1 blog-sidebar">
-     #userIntroduction($user)
-     <div class="sidebar-module">
-         <h4>Hot 10</h4>
-         <ol class="list-unstyled">
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-             <li><a href="#">初窥AOP(阅读：150;评论：120)</a></li>
-
-         </ol>
-     </div>
-     <div class="sidebar-module">
-         <h4>活跃记录</h4>
-         <ol class="list-unstyled">
-             暂无
-         </ol>
-     </div>
- </div><!-- /.blog-sidebar -->*#
-
 </div>
 <footer class="blog-footer" style="background-color: inherit">
     <p>It's a blog</a>.
@@ -76,11 +50,11 @@
 
 <script type="text/javascript">
     function doLogin() {
-        jQuery("#loginForm").attr("action", "$!{ctx}/login");
+        jQuery("#loginForm").attr("action", "$!{ctx}/login.htm");
         jQuery("#loginForm").submit();
     }
     function doRegister() {
-        jQuery("#loginForm").attr("action", "$!{ctx}/register");
+        jQuery("#loginForm").attr("action", "$!{ctx}/register.htm");
         jQuery("#loginForm").submit();
     }
     jQuery(function () {

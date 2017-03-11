@@ -1,5 +1,6 @@
 package com.lsf.twnb.controller;
 
+import com.lsf.twnb.constants.SessionConstants;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IUserService;
 import com.lsf.twnb.common.utils.StringUtil;
@@ -26,7 +27,7 @@ public class RegisterAndLoginController {
      *
      * @return
      */
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
     public String register() {
         return "register";
     }
@@ -36,7 +37,7 @@ public class RegisterAndLoginController {
      *
      * @return
      */
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/register.htm", method = RequestMethod.POST)
     public String doRegister(User user, HttpServletRequest request) {
         userService.checkUserLogin(user);
         String backUrl = request.getParameter("backUrl");
@@ -56,8 +57,8 @@ public class RegisterAndLoginController {
     /**
      *
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String doLogin(User user, HttpServletRequest request,ModelMap map) {
+    @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
+    public String doLogin(HttpSession session,User user, HttpServletRequest request,ModelMap map) {
         //return url
         String backUrl=request.getParameter("backUrl");
         /*if the information is correct, go to backUrl if it exists,
@@ -65,17 +66,18 @@ public class RegisterAndLoginController {
         user=userService.getUserByName(user.getUsername()).getItems().get(0);
         if(user==null){
             map.put("errorInfo","username or password is not correct");
-            return "redirect:/index";
+            return "redirect:/index.htm";
         }else{
-            request.getSession().setAttribute("user",user);
-            return backUrl==null?"redirect:/index":"redirect:"+backUrl;
+            session.setAttribute(SessionConstants.USER,user);
+            session.setAttribute(SessionConstants.USERNAME_ATTRIBUTE,user.getUsername());
+            return backUrl==null?"redirect:/index.htm":"redirect:"+backUrl;
         }
 
     }
 
-    @RequestMapping(value = "/logout")
+    @RequestMapping(value = "/logout.htm")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/index";
+        return "redirect:/index.htm";
     }
 }

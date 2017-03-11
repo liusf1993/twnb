@@ -4,7 +4,7 @@ CREATE TABLE Article
   title CHAR(100) NOT NULL,
   content BLOB,
   author VARCHAR(30),
-  publishdate DATETIME,
+  publishDate DATETIME,
   comment BLOB,
   CONSTRAINT `PRIMARY` PRIMARY KEY (id)
 );

@@ -4,8 +4,10 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import proxy.HelloImpl;
 
 import javax.jms.*;
+import java.util.HashMap;
 
 /**
  * @author: liusf13201
@@ -21,8 +23,15 @@ public class TestForActiveMQ {
         if (session != null) {
             MessageProducer producer = session.createProducer(destination);
             TextMessage message = session.createTextMessage();
-            message.setText("one apple");
-            producer.send(message);
+            for (int i = 0; i < 12; i++) {
+                message.setText("I'm kugou"+i);
+                HashMap map=new HashMap<String,String>();
+                map.put("hello","hi");
+                map.put("world","word");
+                message.setObjectProperty("abc",map);
+                producer.send(message);
+            }
+
             session.close();
         }
 

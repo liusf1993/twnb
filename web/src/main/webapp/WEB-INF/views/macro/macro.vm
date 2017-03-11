@@ -49,8 +49,8 @@
                     <ul class="dropdown-menu " aria-labelledby="drop3">
                         <li><a href="#">个人设置</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="$!{ctx}/logout">注销</a></li>
-                        <li><a href="$!{ctx}/article/postBlog">发布博文</a></li>
+                        <li><a href="$!{ctx}/logout.htm">注销</a></li>
+                        <li><a href="$!{ctx}/blog/postBlog.htm">发布博文</a></li>
                     </ul>
                 </li>
             </ul>

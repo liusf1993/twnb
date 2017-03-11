@@ -21,7 +21,7 @@ public interface IArticleService {
 
     ArticleWithContent getRecentArticle();
 
-    ArticleWithContent getArticleByUser(User user, String currentBlogId, String type);
+    ArticleWithContent getArticleByUser(String username, Integer currentBlogId, String type)  throws TwnbException;
 
     BlogPageQuery queryArticleList(BlogPageQuery blogPageQuery);
 

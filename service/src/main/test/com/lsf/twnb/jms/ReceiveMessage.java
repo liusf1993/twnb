@@ -18,11 +18,11 @@ public class ReceiveMessage {
         Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
         Destination destination = new ActiveMQQueue("spitter.queue");
 
-        if (session != null && destination != null) {
+        if (session != null ) {
             MessageConsumer consumer = session.createConsumer(destination);
             TextMessage message = (TextMessage) consumer.receive();
             System.out.println("Receive A message" + message.getText());
-            conn.start();
+
 
             session.close();
 

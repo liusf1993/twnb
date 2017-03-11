@@ -1,8 +1,8 @@
 package com.lsf.twnb.controller;
 
-import com.lsf.twnb.constants.SystemConstants;
-import com.lsf.twnb.entity.ArticleWithContent;
+import com.lsf.twnb.constants.SessionConstants;
 import com.lsf.twnb.entity.User;
+import com.lsf.twnb.exception.TwnbException;
 import com.lsf.twnb.service.interfaces.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +11,7 @@ import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 
 
@@ -19,32 +20,21 @@ import java.io.UnsupportedEncodingException;
  */
 @Controller
 public class IndexController {
-    private IArticleService articleService;
     @Autowired
-    public IndexController(IArticleService articleService) {
-        this.articleService=articleService;
-        Assert.notNull(articleService,"no implication found for articleService ");
+    private IArticleService blogService;
+
+    @Autowired
+    public IndexController(IArticleService blogService) {
+        this.blogService = blogService;
+        Assert.notNull(blogService, "no implication found for blogService ");
     }
 
-    @RequestMapping(value = {"/index", "/"})
-    public String index(HttpServletRequest request, ModelMap map,String blogId,String type) throws UnsupportedEncodingException {
-
-        putArticleInfo:{
-            User user = (User) request.getSession().getAttribute("user");
-            if(user==null){
-                break putArticleInfo;
-            }
-
-
-            ArticleWithContent articleWithContent =
-                    articleService.getArticleByUser(user, blogId, type);
-            if(articleWithContent==null){
-                break putArticleInfo;
-            }
-            map.put("article", articleWithContent);
-            map.put("content", new String(articleWithContent.getContent(),
-                    SystemConstants.DEFAULT_CHARACTER_SET));
-        }
+    @RequestMapping(value = {"/index.htm"})
+    public String index(HttpSession session,
+                         Integer blogId, String type,ModelMap map) throws TwnbException {
+        //session中的用户信息
+        String username = (String) session.getAttribute(SessionConstants.USERNAME_ATTRIBUTE);
+        map.put("blog",blogService.getArticleByUser(username,blogId,type));
         return "index";
     }
 
