@@ -9,9 +9,9 @@ public class Article {
 
     private String author;
 
-    private Date publishdate;
+    private Date publishDate;
 
-    private String keyWorkd;
+    private String keyWord;
 
     public Integer getId() {
         return id;
@@ -37,24 +37,24 @@ public class Article {
         this.author = author == null ? null : author.trim();
     }
 
-    public Date getPublishdate() {
-        if(publishdate!=null){
-            return (Date) publishdate.clone();
+    public Date getPublishDate() {
+        if(publishDate !=null){
+            return (Date) publishDate.clone();
         }else{
             return null;
         }
 
     }
 
-    public void setPublishdate(Date publishdate) {
-        this.publishdate = publishdate!=null? (Date) publishdate.clone() :null;
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate !=null? (Date) publishDate.clone() :null;
     }
 
-    public String getKeyWorkd() {
-        return keyWorkd;
+    public String getKeyWord() {
+        return keyWord;
     }
 
-    public void setKeyWorkd(String keyWorkd) {
-        this.keyWorkd = keyWorkd;
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
     }
 }
