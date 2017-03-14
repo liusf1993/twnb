@@ -8,7 +8,9 @@ import com.lsf.twnb.query.concrete.BlogPageQuery;
 import java.util.List;
 
 /**
- * Created by liusf on 8/27/16.
+ *@Author liusf
+ *@Date 8/27/16
+ *@Description
  */
 public interface IArticleService {
      ArticleWithContent getLastArticle(String userid);
@@ -27,8 +29,8 @@ public interface IArticleService {
 
     /**
      * 根据ID获取文章
-     * @param blogId
-     * @return
+     * @param blogId 文章ID
+     * @return 文章
      */
     ArticleWithContent getArticleById(int blogId) throws TwnbException;
 }
