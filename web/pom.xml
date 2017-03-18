@@ -63,4 +63,7 @@
         </dependency>
         <!--test end-->
     </dependencies>
+    <build>
+        <finalName>twnb-web</finalName>
+    </build>
 </project>
