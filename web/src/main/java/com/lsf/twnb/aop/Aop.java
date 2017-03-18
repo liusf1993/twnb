@@ -1,8 +1,11 @@
 package com.lsf.twnb.aop;
 
+import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,21 +14,16 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Aop {
-    @Pointcut("execution(* com.lsf.twnb.controller.*.*(..))")
-    public void hello(){
+    Logger logger= LoggerFactory.getLogger(this.getClass());
+    @Pointcut("execution(* com.lsf.twnb.controller..*(..))")
+    public void action(){
 
     }
-    @Before(value = "hello()")
-    public void before(){
-        System.out.printf("before");
-    }
-    @Around(value = "hello()")
-    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+
+    @Around("action()")
+    public Object aroundAction(ProceedingJoinPoint joinPoint) throws Throwable {
+        logger.info("前台请求开始，请求参数如下:{}",joinPoint.getArgs());
         return joinPoint.proceed();
 
-    }
-    @After(value = "hello()")
-    public void after(){
-        System.out.printf("after");
     }
 }

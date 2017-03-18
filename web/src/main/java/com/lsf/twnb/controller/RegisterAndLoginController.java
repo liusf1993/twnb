@@ -4,6 +4,8 @@ import com.lsf.twnb.constants.SessionConstants;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IUserService;
 import com.lsf.twnb.common.utils.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class RegisterAndLoginController {
+    Logger logger= LoggerFactory.getLogger(this.getClass());
     @Autowired
     IUserService userService;
 
@@ -59,6 +62,7 @@ public class RegisterAndLoginController {
      */
     @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
     public String doLogin(HttpSession session,User user, HttpServletRequest request,ModelMap map) {
+        logger.info("开始登录");
         //return url
         String backUrl=request.getParameter("backUrl");
         /*if the information is correct, go to backUrl if it exists,
