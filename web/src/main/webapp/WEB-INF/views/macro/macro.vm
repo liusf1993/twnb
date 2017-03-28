@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="$ctx" style="font-size: 32px;">思无涯</a>
+            <a class="navbar-brand" href="$ctx/index.htm" style="font-size: 32px;">思无涯</a>
             <a class="navbar-brand" style="line-height: 32px;">think without
                 bounds</a>
         </div>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lsf.twnb.dao.ArticleMapper">
+    <cache/>
+
+
     <resultMap id="BaseResultMap" type="com.lsf.twnb.entity.Article">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="title" property="title" jdbcType="CHAR"/>
@@ -11,6 +14,7 @@
         <result column="content" property="content" jdbcType="LONGVARBINARY"/>
         <result column="comment" property="comment" jdbcType="LONGVARBINARY"/>
     </resultMap>
+
     <sql id="Base_Column_List">
         id, title, author, publishDate
     </sql>
@@ -128,7 +132,7 @@
 
         <if test='id!=null and id!="" '>
             <choose>
-                <when test='type!="1" or type!="-1"'>
+                <when test='type!="1" and type!="-1"'>
                     and id=#{id}
                 </when>
                 <otherwise>

@@ -21,6 +21,9 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.lsf.twnb.listener.OnlineUserListener</listener-class>
+    </listener>
 
     <!-- 配置Spring字符编码过滤器 -->
     <filter>

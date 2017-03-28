@@ -26,7 +26,60 @@
 <body>
     #header()
 <div id="mainDiv" class="container">
-    ${screen_content}
+    <div class="row">
+    ##目录结构
+        <div id="catalog" class="col-sm-2 col-sm-offset-1 blog-sidebar " style="padding-left:5%;">
+            <div id="authorInfo" class="sidebar-module">
+                #userIntroduction($user)
+            </div>
+            <div class="sidebar-module">
+                <h3>目录结构</h3>
+                <ol class="list-unstyled">
+                    <li><a href="${ctx}/blog/getBlogList.htm">我的博客</a></li>
+                    <li><a href="#">热点评论</a></li>
+                    <li><a href="#">我的BUG</a></li>
+                    <li><a href="#">编程心得</a></li>
+                </ol>
+            </div>
+
+            <div class="sidebar-module">
+                <h4>常用链接</h4>
+                <ol class="list-unstyled">
+                    <li><a href="https://www.github.com">GitHub</a></li>
+                    <li><a href="http://www.stackoverflow.com">StackOverflow</a></li>
+                    <li><a href="http://www.csdn.com">CSDN</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-sm-8 blog-main" style="height:82%;overflow-y: auto;">
+            ${screen_content}
+        </div>
+    </div>
+    <footer class="blog-footer" style="background-color: inherit">
+        <p>Think with no bounds!</a>.
+        </p>
+    </footer>
+
+
+    <script type="text/javascript">
+        function doLogin() {
+            jQuery("#loginForm").attr("action", "$!{ctx}/login.htm");
+            jQuery("#loginForm").submit();
+        }
+        function doRegister() {
+            jQuery("#loginForm").attr("action", "$!{ctx}/register.htm");
+            jQuery("#loginForm").submit();
+        }
+        jQuery(function () {
+            jQuery(window).scroll(function () {
+                jQuery("#catalog").css("top", jQuery(window).scrollTop());
+                jQuery("#authorInfo").css("top", jQuery(window).scrollTop());
+            });
+        });
+
+    </script>
+
+
 </div>
 </body>
 </html>

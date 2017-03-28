@@ -1,8 +1,8 @@
 我的博客<br/>$queryResult.totalCount
 #foreach($item in ${queryResult.items})
 ${item.id}
-<a href="${ctx}/blog/viewBlog/$!{item.id}.htm" target="_blank"> ${item.title}<br/></a>
-${item.publishDate}<br/>
+<a href="${ctx}/blog/viewBlog/$!{item.id}.htm" target="_blank"> ${item.title}</a>
+    ${DateFormatUtil.format(${item.publishDate},'yyyy/MM/dd')}<br/>
 #end
 
 <div class="container-fluid">
@@ -10,7 +10,7 @@ ${item.publishDate}<br/>
         <div class="col-md-12">
             <ul class="pagination">
                 <li>
-                    <a href="#">Prev</a>
+                    <a href="#">上一页</a>
                 </li>
                 <li>
                     <a href="#">1</a>
@@ -28,7 +28,7 @@ ${item.publishDate}<br/>
                     <a href="#">5</a>
                 </li>
                 <li>
-                    <a href="#">Next</a>
+                    <a href="#">下一页</a>
                 </li>
             </ul>
         </div>
