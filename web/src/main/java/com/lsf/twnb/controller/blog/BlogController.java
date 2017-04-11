@@ -40,16 +40,12 @@ public class BlogController {
         this.blogService = blogService;
     }
     @RequestMapping(value = "/getBlogList.htm")
-    public String getBlogList(HttpServletRequest request,HttpSession session,ModelMap map){
-        String page=request.getParameter("page");
+    public String getBlogList(HttpServletRequest request, HttpSession session, ModelMap map,
+                              BlogPageQuery blogPageQuery){
         User user= (User) session.getAttribute(SessionConstants.USER);
-        BlogPageQuery blogPageQuery=new BlogPageQuery();
         blogPageQuery.setUserName(user.getUsername());
-        blogPageQuery.setPageSize(20);
-        blogPageQuery.setPageNo(1);
         BlogPageQuery articleList= blogService.queryArticleList(blogPageQuery);
         map.put("queryResult",articleList);
-        logger.info(page);
         return PREFIX+"/blogList";
     }
 
