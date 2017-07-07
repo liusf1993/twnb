@@ -4,13 +4,14 @@ import com.lsf.twnb.dao.UserMapper;
 import com.lsf.twnb.entity.User;
 import com.lsf.twnb.service.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.support.PropertySourceFactory;
 import org.springframework.stereotype.Component;
 import com.lsf.twnb.query.concrete.UserPageQuery;
 
 /**
  * Created by liusf13201 on 2015/11/18.
  */
-@Component
+@Component(value = "userService")
 public class UserServiceImpl implements IUserService
 {
     @Autowired
