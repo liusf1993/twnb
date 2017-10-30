@@ -20,6 +20,7 @@ import java.util.List;
 @Service
 public class ArticleServiceImpl implements IArticleService {
     private Logger logger= LoggerFactory.getLogger(this.getClass());
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private ArticleMapper entityMapper;
 
@@ -79,5 +80,10 @@ public class ArticleServiceImpl implements IArticleService {
             throw new TwnbException("系统不支持字符集{}",SystemConstants.DEFAULT_CHARACTER_SET);
         }
         return articleWithContent;
+    }
+
+    @Override
+    public void delete(int blogID) {
+        entityMapper.deleteByPrimaryKey(blogID);
     }
 }

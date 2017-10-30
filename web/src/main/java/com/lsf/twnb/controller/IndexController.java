@@ -1,18 +1,17 @@
 package com.lsf.twnb.controller;
 
 import com.lsf.twnb.constants.SessionConstants;
-import com.lsf.twnb.entity.User;
 import com.lsf.twnb.exception.TwnbException;
 import com.lsf.twnb.service.interfaces.IArticleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
 
 
 /**
@@ -22,6 +21,7 @@ import java.io.UnsupportedEncodingException;
 public class IndexController {
     @Autowired
     private IArticleService blogService;
+    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
     public IndexController(IArticleService blogService) {
@@ -42,4 +42,5 @@ public class IndexController {
     public String testUE() {
         return "ueditor";
     }
+
 }

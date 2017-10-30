@@ -1,7 +1,7 @@
 我的博客<br/>$queryResult.totalCount
 #foreach($item in ${queryResult.items})
 ${item.id}
-<a href="${ctx}/blog/viewBlog/$!{item.id}.htm" target="_blank"> ${item.title}</a>
+<a href="${ctx}/blog/viewBlog/$!{item.id}.htm"> ${item.title}</a>
     ${DateFormatUtil.format(${item.publishDate},'yyyy/MM/dd')}<br/>
 #end
 

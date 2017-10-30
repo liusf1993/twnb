@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.lsf.twnb.query.concrete.BlogPageQuery;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -26,46 +27,50 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/blog")
 public class BlogController {
 
-    private Logger logger= LoggerFactory.getLogger(this.getClass());
-    private final String PREFIX="blog";
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final String PREFIX = "blog";
     private IArticleService blogService;
 
 
     /**
      * 获取博文列表
+     *
      * @param blogService
      */
     @Autowired
     public BlogController(IArticleService blogService) {
         this.blogService = blogService;
     }
+
     @RequestMapping(value = "/getBlogList.htm")
     public String getBlogList(HttpServletRequest request, HttpSession session, ModelMap map,
-                              BlogPageQuery blogPageQuery){
-        User user= (User) session.getAttribute(SessionConstants.USER);
+                              BlogPageQuery blogPageQuery) {
+        User user = (User) session.getAttribute(SessionConstants.USER);
         blogPageQuery.setUserName(user.getUsername());
-        BlogPageQuery articleList= blogService.queryArticleList(blogPageQuery);
-        map.put("queryResult",articleList);
-        return PREFIX+"/blogList";
+        BlogPageQuery articleList = blogService.queryArticleList(blogPageQuery);
+        map.put("queryResult", articleList);
+        return PREFIX + "/blogList";
     }
 
     /**
-     *根据文章ID查看博文
+     * 根据文章ID查看博文
+     *
      * @param blogId
      * @param request
      * @param map
      * @return
      * @throws TwnbException
      */
-    @RequestMapping(value="/viewBlog/{blogId}.htm")
-    public String viewBlog(@PathVariable int blogId,HttpServletRequest request,ModelMap map) throws TwnbException {
-        ArticleWithContent articleWithContent= blogService.getArticleById(blogId);
-        map.put("blog",articleWithContent);
-        return PREFIX+"/blog";
+    @RequestMapping(value = "/viewBlog/{blogId}.htm")
+    public String viewBlog(@PathVariable int blogId, HttpServletRequest request, ModelMap map) throws TwnbException {
+        ArticleWithContent articleWithContent = blogService.getArticleById(blogId);
+        map.put("blog", articleWithContent);
+        return PREFIX + "/blog";
     }
 
     /**
      * 进入发布文章页面
+     *
      * @param session
      * @return
      */
@@ -77,19 +82,19 @@ public class BlogController {
 
     /**
      * 发布文章
+     *
      * @param request
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/postBlog.htm", method = RequestMethod.POST)
-    public String doPostArticle( HttpServletRequest request) throws Exception {
-        JmsTemplate js=new JmsTemplate();
-        User user= (User) request.getSession().getAttribute("user");
-        String content=request.getParameter("blogContent");
-
-        String keyWord=request.getParameter("keyWord");
-        String title=request.getParameter("title");
-        ArticleWithContent article=new ArticleWithContent();
+    public String doPostArticle(HttpServletRequest request) throws Exception {
+        JmsTemplate js = new JmsTemplate();
+        User user = (User) request.getSession().getAttribute("user");
+        String content = request.getParameter("blogContent");
+        String keyWord = request.getParameter("keyWord");
+        String title = request.getParameter("title");
+        ArticleWithContent article = new ArticleWithContent();
         article.setTitle(title);
         article.setAuthor(user.getUsername());
         article.setTitle(title);
@@ -97,11 +102,14 @@ public class BlogController {
         article.setKeyWord(keyWord);
         article.setContent(content.getBytes("utf8"));
         blogService.saveArticle(article);
-
         return "article/postBlog";
-
     }
 
+    @RequestMapping("/delete.htm")
+    public String deleteBlog(@RequestParam(name = "blogID") int blogID) {
+        blogService.delete(blogID);
+        return "redirect:getBlogList.htm";
+    }
 
 
 }

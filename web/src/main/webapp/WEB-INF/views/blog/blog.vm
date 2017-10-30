@@ -1,2 +1,3 @@
 ${blog.title}
+<a href="${ctx}/blog/delete.htm?blogID=${blog.id}" >删除</a>
 ${blog.strContent}

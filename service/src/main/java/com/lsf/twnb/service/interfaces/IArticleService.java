@@ -33,4 +33,6 @@ public interface IArticleService {
      * @return 文章
      */
     ArticleWithContent getArticleById(int blogId) throws TwnbException;
+
+    void delete(int blogID);
 }
