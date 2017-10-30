@@ -1,9 +1,9 @@
 package com.lsf.twnb.common.utils;
 
 /**
- * @Author liusf13201
- * @Date 2016/11/22
- * @Description
+ * @author liusf13201
+ * created on 2016/11/22
+ * class function
  */
 public class StringUtil {
     /**

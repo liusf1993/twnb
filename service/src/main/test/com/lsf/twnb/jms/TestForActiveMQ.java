@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 /**
  * @author: liusf13201
- * @DATE: 2016/10/9
+ * created on: 2016/10/9
  */
 public class TestForActiveMQ {
 

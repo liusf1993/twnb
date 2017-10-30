@@ -6,9 +6,9 @@ import org.junit.Test;
 
 
 /**
- * @Author liusf13201
- * @Date 2016/11/28
- * @Description string util 测试用例
+ * @author liusf13201
+ * created on 2016/11/28
+ * class function string util 测试用例
  *
  */
 public class StringUtilTest {

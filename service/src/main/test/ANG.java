@@ -1,7 +1,7 @@
 /**
- * @Author liusf13201
- * @Date 2016/11/9
- * @Description
+ * @author liusf13201
+ * created on 2016/11/9
+ * class function
  */
 public class ANG extends Abc {
     @Override

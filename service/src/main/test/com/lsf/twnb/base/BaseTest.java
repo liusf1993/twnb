@@ -9,9 +9,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * @Author liusf13201
- * @Date 2016/11/29
- * @Description
+ * @author liusf13201
+ * created on 2016/11/29
+ * class function
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:applicationContext.xml",})

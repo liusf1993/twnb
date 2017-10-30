@@ -4,7 +4,7 @@ import com.lsf.twnb.exception.TwnbException;
 
 /**
  * Created by liusifan on 2017/3/12.
- * @Description 数据交互接口
+ * class function 数据交互接口
  */
 public interface DataInteract {
     /**

@@ -12,9 +12,9 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 
 /**
- * @Author liusifan
- * @Date 2017/3/30
- * @Description
+ * @author liusifan
+ * created on 2017/3/30
+ * class function
  */
 public class OnlineUserListener implements ApplicationContextAware,ServletContextListener {
     @Override

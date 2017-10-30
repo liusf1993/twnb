@@ -12,41 +12,43 @@ import com.lsf.twnb.query.concrete.UserPageQuery;
  * Created by liusf13201 on 2015/11/18.
  */
 @Component(value = "userService")
-public class UserServiceImpl implements IUserService
-{
+public class UserServiceImpl implements IUserService {
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
-    public void insert(User user)
-    {
+    @Override
+    public void insert(User user) {
         userMapper.insert(user);
     }
 
-    public void updateById(User user)
-    {
+    @Override
+    public void updateById(User user) {
         userMapper.updateById(user);
     }
 
+    @Override
     public UserPageQuery getUserByName(String username) {
-        UserPageQuery userQuery=new UserPageQuery();
+        UserPageQuery userQuery = new UserPageQuery();
         userQuery.setUsername(username);
         userQuery.setItems(userMapper.queryUser(userQuery));
         return userQuery;
     }
 
+    @Override
     public User checkUserLogin(User user) {
-        User dbUser= userMapper.getUserByName(user.getUsername());
-        if(dbUser==null){
+        User dbUser = userMapper.getUserByName(user.getUsername());
+        if (dbUser == null) {
             return null;
         }
-        if(dbUser.getPassword().equals(user.getPassword())){
+        if (dbUser.getPassword().equals(user.getPassword())) {
             dbUser.hidePassword();
             return dbUser;
-        }else{
+        } else {
             return null;
         }
     }
-
+    @Override
     public void deleteUserByUsername(String username) {
         userMapper.deleteUserByUsername(username);
     }

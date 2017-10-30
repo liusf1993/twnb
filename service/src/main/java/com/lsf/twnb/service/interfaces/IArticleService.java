@@ -8,9 +8,9 @@ import com.lsf.twnb.query.concrete.BlogPageQuery;
 import java.util.List;
 
 /**
- *@Author liusf
- *@Date 8/27/16
- *@Description
+ *@author liusf
+ *created on 8/27/16
+ *class function
  */
 public interface IArticleService {
      ArticleWithContent getLastArticle(String userid);

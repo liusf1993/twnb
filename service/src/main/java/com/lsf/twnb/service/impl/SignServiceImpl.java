@@ -12,8 +12,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SignServiceImpl implements ISignService
 {
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
-    SignMapper entityMapper;
+    private SignMapper entityMapper;
     @Override
     public void insert(Sign sign)
     {
@@ -21,8 +22,8 @@ public class SignServiceImpl implements ISignService
     }
 
     @Override
-    public void updateByUsername(Sign Sign)
+    public void updateByUsername(Sign sign)
     {
-        entityMapper.updateByUsername(Sign);
+        entityMapper.updateByUsername(sign);
     }
 }

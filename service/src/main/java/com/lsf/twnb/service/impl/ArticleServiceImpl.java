@@ -34,6 +34,7 @@ public class ArticleServiceImpl implements IArticleService {
         entityMapper.insert(articleWithContent);
     }
 
+    @Override
     public List<ArticleWithContent> getRecentTwoArticle(String username) {
         return entityMapper.getRecentTwoArticle(username);
     }

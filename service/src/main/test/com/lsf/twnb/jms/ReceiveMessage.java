@@ -8,7 +8,7 @@ import javax.jms.*;
 
 /**
  * @author: liusf13201
- * @DATE: 2016/10/9
+ * created on: 2016/10/9
  */
 public class ReceiveMessage {
     public static void main(String[] args) throws Exception {

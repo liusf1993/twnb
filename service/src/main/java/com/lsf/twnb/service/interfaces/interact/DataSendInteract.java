@@ -4,17 +4,19 @@ import com.lsf.twnb.exception.TwnbException;
 
 /**
  * Created by liusifan on 2017/3/12.
- * @Description 数据发送交互
+ * class function 数据发送交互
  */
 public interface DataSendInteract extends DataInteract {
     /**
      * 交互方式为发送
      * @return 交互方式
      */
+    @Override
     default INTERACT_TYPE getInteractType(){
         return INTERACT_TYPE.SEND;
     }
 
+    @Override
     default Object interact(Object... args) throws TwnbException{
         //验证发送数据
         checkSendData(args);

@@ -4,8 +4,10 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
         </Console>
-        <RollingFile name="RollingFile" fileName="${catalina.base}/logs/sample.log"
-                     filePattern="${catalina.base}/logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" immediateFlush="false"
+        <RollingFile name="RollingFile"
+                     fileName="${sys:catalina.base}/logs/twnb/info.log"
+                     filePattern="${sys:catalina.base}/logs/twnb/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log"
+                     immediateFlush="false"
                      append="true">
             <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
             <SizeBasedTriggeringPolicy size="50 MB"/>
@@ -16,12 +18,9 @@
         </Async>
     </appenders>
     <loggers>
-        <logger name="com" additivity="false" level="trace">
+        <logger name="com" additivity="false" level="info">
             <AppenderRef ref="Async" level="trace"/>
         </logger>
-        <AsyncLogger name="com" level="trace" includeLocation="false">
-            <AppenderRef ref="RandomAccessFile"/>
-        </AsyncLogger>
         <logger name="org.springframework" additivity="false" level="warn">
             <AppenderRef ref="Async" level="warn"/>
         </logger>

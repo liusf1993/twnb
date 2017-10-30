@@ -11,10 +11,12 @@ public interface DataReceiveInteract extends DataInteract {
      * 交互方式为接收
      * @return 交互方式
      */
+    @Override
     default INTERACT_TYPE getInteractType(){
         return INTERACT_TYPE.SEND;
     }
 
+    @Override
     default  Object interact(Object... args) throws TwnbException{
         return dealReturnData(args);
     }
